@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 
-namespace StarCrucible.SceneRenderers
+namespace StarCrucible.GameVc
 {
     public interface IRenderAScene<TSceneType>
     {

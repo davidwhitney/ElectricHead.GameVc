@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
+using StarCrucible.GameVc;
+using StarCrucible.Scenes;
 
 namespace StarCrucible
 {
@@ -8,19 +9,22 @@ namespace StarCrucible
     {
         GraphicsDeviceManager _graphics;
         SpriteBatch _spriteBatch;
+        private readonly SceneDispatcher _dispatcher;
 
         public StarCrucible()
         {
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+
+            _dispatcher = new SceneDispatcher(this)
+                            .AddScene<StartController>();
         }
 
         protected override void LoadContent()
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-
-            // TODO: use this.Content to load your game content here
+            _dispatcher.LoadContent();
         }
 
         /// <summary>
@@ -30,11 +34,7 @@ namespace StarCrucible
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-                Exit();
-
-            // TODO: Add your update logic here
-
+            _dispatcher.Update(gameTime);
             base.Update(gameTime);
         }
 
@@ -45,9 +45,8 @@ namespace StarCrucible
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-
-            // TODO: Add your drawing code here
-
+            
+            _dispatcher.Draw(gameTime);
             base.Draw(gameTime);
         }
     }
