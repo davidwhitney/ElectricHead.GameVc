@@ -44,6 +44,10 @@
     <Compile Include="GameVc\ControlFlow\SceneController.cs" />
     <Compile Include="GameVc\ControlFlow\SceneDispatcher.cs" />
     <Compile Include="GameVc\Results\ActionResult.cs" />
+    <Compile Include="GameVc\Results\ChangeScene.cs" />
+    <Compile Include="GameVc\Results\And.cs" />
+    <Compile Include="GameVc\Results\Continue.cs" />
+    <Compile Include="GameVc\Results\Exit.cs" />
     <Compile Include="Scenes\Splash\SplashScreenRenderer.cs" />
     <Compile Include="Scenes\Start\StartScreenRenderer.cs" />
     <Compile Include="Scenes\Splash\SplashScreen.cs" />
