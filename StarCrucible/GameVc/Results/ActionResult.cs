@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
+using StarCrucible.GameVc.ControlFlow;
 
 namespace StarCrucible.GameVc.Results
 {
@@ -30,18 +31,23 @@ namespace StarCrucible.GameVc.Results
         public static readonly Do Nothing = new Do();
     }
 
-    public class Scene : ActionResult
+    public class ChangeScene : ActionResult
     {
         public Type TargetScene { get; set; }
+
+        private ChangeScene(Type targetScene)
+        {
+            TargetScene = targetScene;
+        }
 
         public override void Execute(Game game, SceneDispatcher dispatcher)
         {
             dispatcher.RedirectTo(TargetScene);
         }
 
-        public static Scene Change<TTargetType>()
+        public static ChangeScene To<TTargetType>()
         {
-            return new Scene {TargetScene = typeof (TTargetType)};
+            return new ChangeScene(typeof (TTargetType));
         }
     }
 }

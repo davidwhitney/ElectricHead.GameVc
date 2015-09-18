@@ -1,10 +1,9 @@
-﻿using System;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework;
 using StarCrucible.GameVc;
-using StarCrucible.Scenes;
+using StarCrucible.GameVc.ControlFlow;
+using StarCrucible.GameVc.Rendering;
 
-namespace StarCrucible.SceneRenderers
+namespace StarCrucible.Scenes.Splash
 {
     public class SplashScreenRenderer : IRenderAScene
     {

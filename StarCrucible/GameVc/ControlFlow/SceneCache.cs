@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace StarCrucible.GameVc
+namespace StarCrucible.GameVc.ControlFlow
 {
     public class SceneCache
     {

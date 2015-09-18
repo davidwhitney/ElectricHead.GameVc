@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using StarCrucible.GameVc.Results;
 
-namespace StarCrucible.GameVc
+namespace StarCrucible.GameVc.ControlFlow
 {
     public interface ISceneController
     {

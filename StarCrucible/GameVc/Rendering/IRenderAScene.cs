@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
+using StarCrucible.GameVc.ControlFlow;
 
-namespace StarCrucible.GameVc
+namespace StarCrucible.GameVc.Rendering
 {
     public interface IRenderAScene
     {

@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Xna.Framework;
+using StarCrucible.GameVc.Rendering;
 using StarCrucible.GameVc.Results;
 
-namespace StarCrucible.GameVc
+namespace StarCrucible.GameVc.ControlFlow
 {
     public class SceneDispatcher
     {

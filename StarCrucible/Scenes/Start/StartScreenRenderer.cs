@@ -1,8 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
 using StarCrucible.GameVc;
-using StarCrucible.Scenes;
+using StarCrucible.GameVc.ControlFlow;
+using StarCrucible.GameVc.Rendering;
 
-namespace StarCrucible.SceneRenderers
+namespace StarCrucible.Scenes.Start
 {
     public class StartScreenRenderer : IRenderAScene
     {
