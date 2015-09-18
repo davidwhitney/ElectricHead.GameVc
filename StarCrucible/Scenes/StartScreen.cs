@@ -1,11 +1,12 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using StarCrucible.GameVc;
 using StarCrucible.GameVc.Results;
 
 namespace StarCrucible.Scenes
 {
-    public class StartController : SceneController
+    public class StartScreen : SceneController
     {
         public override ActionResult PreUpdate()
         {

@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using StarCrucible.GameVc;
+using StarCrucible.SceneRenderers;
 using StarCrucible.Scenes;
 
 namespace StarCrucible
@@ -17,7 +18,8 @@ namespace StarCrucible
             Content.RootDirectory = "Content";
 
             _dispatcher = new SceneDispatcher(this)
-                            .AddScene<StartController>();
+                .AddSceneWithRenderer<SplashScreen, SplashScreenRenderer>()
+                .AddSceneWithRenderer<StartScreen, StartScreenRenderer>();
         }
 
         protected override void LoadContent()
@@ -44,8 +46,6 @@ namespace StarCrucible
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
-            
             _dispatcher.Draw(gameTime);
             base.Draw(gameTime);
         }

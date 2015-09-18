@@ -44,7 +44,10 @@
     <Compile Include="GameVc\SceneController.cs" />
     <Compile Include="GameVc\SceneDispatcher.cs" />
     <Compile Include="GameVc\Results\ActionResult.cs" />
-    <Compile Include="Scenes\StartController.cs" />
+    <Compile Include="SceneRenderers\SplashScreenRenderer.cs" />
+    <Compile Include="SceneRenderers\StartScreenRenderer.cs" />
+    <Compile Include="Scenes\SplashScreen.cs" />
+    <Compile Include="Scenes\StartScreen.cs" />
     <Compile Include="StarCrucible.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -62,9 +65,7 @@
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="SceneRenderers\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
