@@ -26,12 +26,10 @@ namespace StarCrucible.GameVc.ControlFlow
                 );
         }
 
-        public SceneRouter AddSceneWithRenderer<TScene, TRenderer>()
+        public SceneRouter AddScene<TScene>()
             where TScene : IScene
-            where TRenderer : IRenderAScene
         {
-            _sceneRegistry.Scenes.Add(typeof (TScene));
-            _sceneRegistry.Renderers.Add(Activator.CreateInstance<TRenderer>());
+            _sceneRegistry.Register<TScene>();
             return this;
         }
 
@@ -55,8 +53,7 @@ namespace StarCrucible.GameVc.ControlFlow
 
         public void Draw(GameTime time)
         {
-            _sceneRegistry.Renderers.First(x => x.Supports(Current))
-                      .Draw(_game, Current, time);
+            _sceneRegistry.RendererFor(Current).Draw(_game, Current, time);
         }
     }
 }

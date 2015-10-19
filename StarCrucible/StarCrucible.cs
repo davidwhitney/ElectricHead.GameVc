@@ -20,8 +20,8 @@ namespace StarCrucible
             Content.RootDirectory = "Content";
 
             _router = new SceneRouter(this)
-                .AddSceneWithRenderer<SplashScreen, SplashScreenRenderer>()
-                .AddSceneWithRenderer<StartScreen, StartScreenRenderer>();
+                .AddScene<SplashScreen>()
+                .AddScene<StartScreen>();
         }
 
         protected override void LoadContent()

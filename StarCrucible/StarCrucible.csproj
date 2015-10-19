@@ -51,6 +51,8 @@
     <Compile Include="GameVc\Results\And.cs" />
     <Compile Include="GameVc\Results\Continue.cs" />
     <Compile Include="GameVc\Results\Exit.cs" />
+    <Compile Include="Scenes\GameBoard\GameBoardScreen.cs" />
+    <Compile Include="Scenes\GameBoard\GameBoardScreenRenderer.cs" />
     <Compile Include="Scenes\Splash\SplashScreenRenderer.cs" />
     <Compile Include="Scenes\Start\StartScreenRenderer.cs" />
     <Compile Include="Scenes\Splash\SplashScreen.cs" />
@@ -69,14 +71,14 @@
   <ItemGroup>
     <Content Include="Icon.ico" />
   </ItemGroup>
-  <ItemGroup>
+  <ItemGroup Condition="'$(NCrunch)' != '1'">
     <MonoGameContentReference Include="Content\Content.mgcb" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="GameVc\Bootstrapping\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />
+  <Import Condition="'$(NCrunch)' != '1'" Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
