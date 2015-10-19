@@ -42,24 +42,7 @@ namespace StarCrucible.GameVc.ControlFlow
                 Register(scene);
             }
         }
-
-        public Type SelectDefaultScene()
-        {
-            foreach (var stub in new[] {"Default", "Splash", "Home", "Start"})
-            {
-                var scene = stub + "Scene";
-                var screen = stub + "Screen";
-
-                var knownStartScene = Scenes.FirstOrDefault(x => x.Name.ToLower() == scene.ToLower() || x.Name.ToLower() == screen.ToLower());
-                if (knownStartScene != null)
-                {
-                    return knownStartScene;
-                }
-            }
-
-            return Scenes.First();
-        }
-
+        
         public void Register<TScene>()
             where TScene : IScene
         {

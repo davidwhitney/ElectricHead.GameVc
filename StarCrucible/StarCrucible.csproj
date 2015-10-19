@@ -38,8 +38,10 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="GameVc\ControlFlow\DefaultSceneSelectionStrategy.cs" />
     <Compile Include="GameVc\ControlFlow\GameLoop.cs" />
     <Compile Include="GameVc\ControlFlow\ISceneRouting.cs" />
+    <Compile Include="GameVc\ControlFlow\ISceneSelectionStrategy.cs" />
     <Compile Include="GameVc\ControlFlow\SceneRegistry.cs" />
     <Compile Include="GameVc\Rendering\IRenderAScene.cs" />
     <Compile Include="GameVc\ControlFlow\IScene.cs" />

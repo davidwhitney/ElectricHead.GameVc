@@ -31,22 +31,8 @@ namespace StarCrucible.Test.Unit.GameVc.ControlFlow
             Assert.That(registry.Scenes[0], Is.EqualTo(typeof(TestScene)));
             Assert.That(registry.Renderers[0], Is.TypeOf<TestSceneRenderer>());
         }
-
-        [Test]
-        public void SelectDefaultScene_GivenPopulatedRegistry_FindsDefault()
-        {
-            var registry = new SceneRegistry();
-
-            registry.Scenes.Add(typeof(TestScene));
-            registry.Scenes.Add(typeof(HomeScene));
-            registry.Scenes.Add(typeof(RandomScene));
-
-            var start = registry.SelectDefaultScene();
-
-            Assert.That(start, Is.EqualTo(typeof(HomeScene)));
-        }
     }
-
+    
     public class HomeScene : Scene { }
     public class RandomScene : Scene { }
 

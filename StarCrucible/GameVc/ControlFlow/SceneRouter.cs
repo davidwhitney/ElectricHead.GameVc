@@ -10,6 +10,7 @@ namespace StarCrucible.GameVc.ControlFlow
         private readonly GameLoop _gameLoop;
         private readonly SceneRegistry _sceneRegistry;
         private readonly SceneCache _cache;
+        private readonly ISceneSelectionStrategy _sceneSelectionStragety;
 
         private IScene Current => _cache.For(_sceneRegistry.Scenes.First());
 
@@ -17,10 +18,11 @@ namespace StarCrucible.GameVc.ControlFlow
         {
             _game = game;
             _cache = new SceneCache();
-
             _sceneRegistry = new SceneRegistry();
+            _sceneSelectionStragety = new DefaultSceneSelectionStrategy();
+
             _sceneRegistry.AutoRegister();
-            RedirectTo(_sceneRegistry.SelectDefaultScene());
+            RedirectTo(DefaultScene());
 
             _gameLoop = new GameLoop(_game, this,
                 t => Current.PreUpdate(),
@@ -33,6 +35,12 @@ namespace StarCrucible.GameVc.ControlFlow
         {
             RedirectTo(typeof(TScene));
             return this;
+        }
+
+        private Type DefaultScene()
+        {
+            var selected = _sceneSelectionStragety.SelectStartScene(_sceneRegistry.Scenes.Select(x => x.Name).ToArray());
+            return _sceneRegistry.Scenes.First(x => x.Name == selected);
         }
 
         public void RedirectTo(Type scene)
