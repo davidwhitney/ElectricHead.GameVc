@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Input;
 using StarCrucible.GameVc.ControlFlow;
 using StarCrucible.GameVc.Results;
+using static StarCrucible.GameVc.Results.And;
 
 namespace StarCrucible.Scenes.Start
 {
@@ -12,10 +13,10 @@ namespace StarCrucible.Scenes.Start
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed 
                 || Keyboard.GetState().IsKeyDown(Keys.Escape))
             {
-                return And.QuitToDesktop;
+                return QuitToDesktop;
             }
 
-            return And.Continue;
+            return NoOp;
         }
     }
 }

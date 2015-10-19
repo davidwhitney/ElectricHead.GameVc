@@ -11,17 +11,17 @@ namespace StarCrucible.GameVc.ControlFlow
 
         public virtual ActionResult PreUpdate()
         {
-            return And.Continue;
+            return And.NoOp;
         }
 
         public virtual ActionResult Update(GameTime gameTime)
         {
-            return And.Continue;
+            return And.NoOp;
         }
 
         public virtual ActionResult PostUpdate()
         {
-            return And.Continue;
+            return And.NoOp;
         }
 
         public void UnloadContent()
