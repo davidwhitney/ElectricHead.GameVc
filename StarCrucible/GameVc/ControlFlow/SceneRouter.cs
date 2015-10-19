@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 using Microsoft.Xna.Framework;
-using StarCrucible.GameVc.Rendering;
 
 namespace StarCrucible.GameVc.ControlFlow
 {
@@ -18,7 +17,10 @@ namespace StarCrucible.GameVc.ControlFlow
         {
             _game = game;
             _cache = new SceneCache();
+
             _sceneRegistry = new SceneRegistry();
+            _sceneRegistry.AutoRegister();
+            RedirectTo(_sceneRegistry.SelectDefaultScene());
 
             _gameLoop = new GameLoop(_game, this,
                 t => Current.PreUpdate(),
@@ -26,10 +28,10 @@ namespace StarCrucible.GameVc.ControlFlow
                 );
         }
 
-        public SceneRouter AddScene<TScene>()
+        public SceneRouter StartWith<TScene>()
             where TScene : IScene
         {
-            _sceneRegistry.Register<TScene>();
+            RedirectTo(typeof(TScene));
             return this;
         }
 

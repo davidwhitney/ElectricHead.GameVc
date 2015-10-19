@@ -17,17 +17,65 @@ namespace StarCrucible.GameVc.ControlFlow
             Renderers = new List<IRenderAScene>();
         }
 
+        public void AutoRegister(string @namespace = null)
+        {
+            var candidateTypes = new List<Type>();
+            foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies())
+            {
+                candidateTypes.AddRange(assembly.GetTypes().ToList());
+            }
+
+            if (@namespace != null)
+            {
+                candidateTypes = candidateTypes.Where(x => x.Namespace != null && x.Namespace.StartsWith(@namespace)).ToList();
+            }
+
+            candidateTypes.RemoveAll(x => x == typeof (Scene));
+
+            var scenes = candidateTypes
+                .Where(type => type.GetInterfaces().Contains(typeof (IScene))
+                               && type.IsClass
+                               && !type.IsAbstract).ToList();
+            
+            foreach (var scene in scenes)
+            {
+                Register(scene);
+            }
+        }
+
+        public Type SelectDefaultScene()
+        {
+            foreach (var stub in new[] {"Default", "Splash", "Home", "Start"})
+            {
+                var scene = stub + "Scene";
+                var screen = stub + "Screen";
+
+                var knownStartScene = Scenes.FirstOrDefault(x => x.Name.ToLower() == scene.ToLower() || x.Name.ToLower() == screen.ToLower());
+                if (knownStartScene != null)
+                {
+                    return knownStartScene;
+                }
+            }
+
+            return Scenes.First();
+        }
+
         public void Register<TScene>()
             where TScene : IScene
         {
-            Scenes.Add(typeof(TScene));
+            Register(typeof (TScene));
+        }
 
-            var rendererName = typeof (TScene).Name.Replace(typeof(TScene).Name, typeof(TScene).Name + "Renderer");
-            var rendererType = Assembly.GetAssembly(typeof (TScene)).GetTypes().FirstOrDefault(type => type.Name == rendererName);
+        private void Register(Type sceneType)
+        {
+            Scenes.Add(sceneType);
+
+            var rendererName = sceneType.Name.Replace(sceneType.Name, sceneType.Name + "Renderer");
+            var rendererType = Assembly.GetAssembly(sceneType).GetTypes().FirstOrDefault(type => type.Name == rendererName);
 
             if (rendererType == null)
             {
-                throw new Exception("Can't find renderer for " + typeof(TScene).FullName);
+                throw new Exception("Can't find renderer for " + sceneType.FullName);
             }
 
             Renderers.Add((IRenderAScene)Activator.CreateInstance(rendererType));

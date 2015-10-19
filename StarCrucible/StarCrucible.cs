@@ -1,10 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using StarCrucible.GameVc;
 using StarCrucible.GameVc.ControlFlow;
-using StarCrucible.Scenes;
 using StarCrucible.Scenes.Splash;
-using StarCrucible.Scenes.Start;
 
 namespace StarCrucible
 {
@@ -16,12 +13,9 @@ namespace StarCrucible
 
         public StarCrucible()
         {
-            _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-
-            _router = new SceneRouter(this)
-                .AddScene<SplashScreen>()
-                .AddScene<StartScreen>();
+            _graphics = new GraphicsDeviceManager(this);
+            _router = new SceneRouter(this);
         }
 
         protected override void LoadContent()
