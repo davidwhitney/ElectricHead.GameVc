@@ -5,7 +5,7 @@ using StarCrucible.GameVc.Results;
 
 namespace StarCrucible.Scenes.Start
 {
-    public class StartScreen : SceneController
+    public class StartScreen : Scene
     {
         public override ActionResult PreUpdate()
         {

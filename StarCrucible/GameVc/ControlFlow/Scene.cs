@@ -3,7 +3,7 @@ using StarCrucible.GameVc.Results;
 
 namespace StarCrucible.GameVc.ControlFlow
 {
-    public class SceneController : ISceneController
+    public class Scene : IScene
     {
         public virtual void LoadContent()
         {

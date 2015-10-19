@@ -3,7 +3,7 @@ using StarCrucible.GameVc.Results;
 
 namespace StarCrucible.GameVc.ControlFlow
 {
-    public interface ISceneController
+    public interface IScene
     {
         void LoadContent();
         ActionResult PreUpdate();

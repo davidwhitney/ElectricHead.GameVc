@@ -7,12 +7,12 @@ namespace StarCrucible.Scenes.Splash
 {
     public class SplashScreenRenderer : IRenderAScene
     {
-        public bool Supports(ISceneController scene)
+        public bool Supports(IScene scene)
         {
             return scene.GetType() == typeof (SplashScreen);
         }
 
-        public void Draw(Game game, ISceneController current, GameTime gameTime)
+        public void Draw(Game game, IScene current, GameTime gameTime)
         {
             game.GraphicsDevice.Clear(Color.Black);
         }

@@ -12,14 +12,14 @@ namespace StarCrucible
     {
         GraphicsDeviceManager _graphics;
         SpriteBatch _spriteBatch;
-        private readonly SceneDispatcher _dispatcher;
+        private readonly SceneRouter _router;
 
         public StarCrucible()
         {
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
 
-            _dispatcher = new SceneDispatcher(this)
+            _router = new SceneRouter(this)
                 .AddSceneWithRenderer<SplashScreen, SplashScreenRenderer>()
                 .AddSceneWithRenderer<StartScreen, StartScreenRenderer>();
         }
@@ -28,7 +28,7 @@ namespace StarCrucible
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-            _dispatcher.LoadContent();
+            _router.LoadContent();
         }
 
         /// <summary>
@@ -38,7 +38,7 @@ namespace StarCrucible
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            _dispatcher.Update(gameTime);
+            _router.Update(gameTime);
             base.Update(gameTime);
         }
 
@@ -48,7 +48,7 @@ namespace StarCrucible
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            _dispatcher.Draw(gameTime);
+            _router.Draw(gameTime);
             base.Draw(gameTime);
         }
     }

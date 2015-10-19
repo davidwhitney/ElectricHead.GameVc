@@ -5,7 +5,7 @@ namespace StarCrucible.GameVc.Rendering
 {
     public interface IRenderAScene
     {
-        bool Supports(ISceneController scene);
-        void Draw(Game game, ISceneController current, GameTime gameTime);
+        bool Supports(IScene scene);
+        void Draw(Game game, IScene current, GameTime gameTime);
     }
 }

@@ -13,9 +13,9 @@ namespace StarCrucible.GameVc.Results
             TargetScene = targetScene;
         }
 
-        public override void Execute(Game game, SceneDispatcher dispatcher)
+        public override void Execute(Game game, ISceneRouting router)
         {
-            dispatcher.RedirectTo(TargetScene);
+            router.RedirectTo(TargetScene);
         }
     }
 }

@@ -5,18 +5,18 @@ namespace StarCrucible.GameVc.ControlFlow
 {
     public class SceneCache
     {
-        private readonly Dictionary<Type, ISceneController> _runningInstances;
+        private readonly Dictionary<Type, IScene> _runningInstances;
           
         public SceneCache()
         {
-            _runningInstances = new Dictionary<Type, ISceneController>();
+            _runningInstances = new Dictionary<Type, IScene>();
         }
 
-        public ISceneController For(Type sceneType)
+        public IScene For(Type sceneType)
         {
             if (!_runningInstances.ContainsKey(sceneType))
             {
-                var instance = (ISceneController)Activator.CreateInstance(sceneType);
+                var instance = (IScene)Activator.CreateInstance(sceneType);
                 _runningInstances.Add(sceneType, instance);
             }
 

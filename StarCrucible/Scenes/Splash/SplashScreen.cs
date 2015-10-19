@@ -6,7 +6,7 @@ using StarCrucible.Scenes.Start;
 
 namespace StarCrucible.Scenes.Splash
 {
-    public class SplashScreen : SceneController
+    public class SplashScreen : Scene
     {
         public override ActionResult Update(GameTime gameTime)
         {

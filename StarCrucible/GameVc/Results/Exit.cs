@@ -5,7 +5,7 @@ namespace StarCrucible.GameVc.Results
 {
     public class Exit : ActionResult
     {
-        public override void Execute(Game game, SceneDispatcher dispatcher)
+        public override void Execute(Game game, ISceneRouting router)
         {
             game.Exit();
         }
