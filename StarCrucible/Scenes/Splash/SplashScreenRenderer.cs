@@ -5,13 +5,8 @@ using StarCrucible.GameVc.Rendering;
 
 namespace StarCrucible.Scenes.Splash
 {
-    public class SplashScreenRenderer : IRenderAScene
+    public class SplashScreenRenderer : IRenderAScene<SplashScreen>
     {
-        public bool Supports(IScene scene)
-        {
-            return scene.GetType() == typeof (SplashScreen);
-        }
-
         public void Draw(Game game, IScene current, GameTime gameTime)
         {
             game.GraphicsDevice.Clear(Color.Black);

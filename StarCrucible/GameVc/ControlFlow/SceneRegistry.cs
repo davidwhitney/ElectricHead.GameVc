@@ -17,6 +17,11 @@ namespace StarCrucible.GameVc.ControlFlow
             Renderers = new List<IRenderAScene>();
         }
 
+        public void AutoRegisterFromNamespaceContaining<T>()
+        {
+            AutoRegister(typeof (T).Namespace);
+        }
+
         public void AutoRegister(string @namespace = null)
         {
             var candidateTypes = new List<Type>();
@@ -66,7 +71,18 @@ namespace StarCrucible.GameVc.ControlFlow
         
         public IRenderAScene RendererFor(IScene scene)
         {
-            return Renderers.First(x => x.Supports(scene));
+            foreach (var renderer in Renderers)
+            {
+                var args = renderer.GetType().GetGenericArguments();
+                if (args.Contains(scene.GetType()))
+                {
+                    return renderer;
+                }
+            }
+
+            return null;
+
+            //return Renderers.First(x => x.Supports(scene));
         }
     }
 }

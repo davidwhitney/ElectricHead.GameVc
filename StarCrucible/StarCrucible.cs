@@ -1,7 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using StarCrucible.GameVc.ControlFlow;
-using StarCrucible.Scenes.Splash;
 
 namespace StarCrucible
 {

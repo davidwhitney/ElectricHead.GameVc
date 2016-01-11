@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using Microsoft.Xna.Framework;
+using StarCrucible.GameVc.Rendering;
 
 namespace StarCrucible.GameVc.ControlFlow
 {
@@ -63,7 +64,8 @@ namespace StarCrucible.GameVc.ControlFlow
 
         public void Draw(GameTime time)
         {
-            _sceneRegistry.RendererFor(Current).Draw(_game, Current, time);
+            var renderer = (IRenderAScene<IScene>) _sceneRegistry.RendererFor(Current);
+            renderer.Draw(_game, Current, time);
         }
     }
 }

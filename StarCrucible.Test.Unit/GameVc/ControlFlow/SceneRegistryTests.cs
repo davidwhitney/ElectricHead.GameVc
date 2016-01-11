@@ -26,7 +26,7 @@ namespace StarCrucible.Test.Unit.GameVc.ControlFlow
         {
             var registry = new SceneRegistry();
 
-            registry.AutoRegister("StarCrucible.Test.Unit.GameVc.ControlFlow.DetectionTestTypes");
+            registry.AutoRegisterFromNamespaceContaining<TestScene>();
 
             Assert.That(registry.Scenes[0], Is.EqualTo(typeof(TestScene)));
             Assert.That(registry.Renderers[0], Is.TypeOf<TestSceneRenderer>());

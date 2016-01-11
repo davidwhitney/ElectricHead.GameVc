@@ -4,13 +4,8 @@ using StarCrucible.GameVc.Rendering;
 
 namespace StarCrucible.Scenes.GameBoard
 {
-    public class GameBoardScreenRenderer : IRenderAScene
+    public class GameBoardScreenRenderer : IRenderAScene<GameBoardScreen>
     {
-        public bool Supports(IScene scene)
-        {
-            return scene.GetType() == typeof (GameBoardScreen);
-        }
-
         public void Draw(Game game, IScene current, GameTime gameTime)
         {
             game.GraphicsDevice.Clear(Color.CornflowerBlue);
