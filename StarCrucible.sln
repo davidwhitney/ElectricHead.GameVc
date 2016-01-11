@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarCrucible", "StarCrucible.csproj", "{A2EB5D0E-5376-49F2-BDA3-C447E34F8E40}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarCrucible", "StarCrucible\StarCrucible.csproj", "{A2EB5D0E-5376-49F2-BDA3-C447E34F8E40}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarCrucible.Test.Unit", "..\StarCrucible.Test.Unit\StarCrucible.Test.Unit.csproj", "{161BC9C0-30ED-4C66-B76A-FE92676739D0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarCrucible.Test.Unit", "StarCrucible.Test.Unit\StarCrucible.Test.Unit.csproj", "{161BC9C0-30ED-4C66-B76A-FE92676739D0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
