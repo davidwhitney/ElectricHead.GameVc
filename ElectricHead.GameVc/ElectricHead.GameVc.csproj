@@ -67,7 +67,7 @@
     <Compile Include="Results\Exit.cs" />
   </ItemGroup>
   <ItemGroup>
-    <MonoGameContentReference Include="Content\Content.mgcb" />
+    <MonoGameContentReference Include="Content\GameVc.mgcb" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Condition="'$(NCrunch)' != '1'" Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />
