@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{A2EB5D0E-5376-49F2-BDA3-C447E34F8E40}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <ProjectGuid>{A2EB5D0E-5376-49F2-BDA3-C447E34F8F40}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>StarCrucible</RootNamespace>
-    <AssemblyName>StarCrucible</AssemblyName>
+    <RootNamespace>ElectricHead.GameVc</RootNamespace>
+    <AssemblyName>ElectricHead.GameVc</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MonoGamePlatform>Windows</MonoGamePlatform>
     <MonoGameContentBuilderExe>
@@ -35,34 +35,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Icon.ico</ApplicationIcon>
+    <ApplicationIcon>
+    </ApplicationIcon>
   </PropertyGroup>
-  <ItemGroup>
-    <Compile Include="GameVc\ControlFlow\DefaultSceneSelectionStrategy.cs" />
-    <Compile Include="GameVc\ControlFlow\GameLoop.cs" />
-    <Compile Include="GameVc\ControlFlow\ISceneRouting.cs" />
-    <Compile Include="GameVc\ControlFlow\ISceneSelectionStrategy.cs" />
-    <Compile Include="GameVc\ControlFlow\SceneRegistry.cs" />
-    <Compile Include="GameVc\Rendering\IRenderAScene.cs" />
-    <Compile Include="GameVc\ControlFlow\IScene.cs" />
-    <Compile Include="GameVc\ControlFlow\SceneCache.cs" />
-    <Compile Include="GameVc\ControlFlow\Scene.cs" />
-    <Compile Include="GameVc\ControlFlow\SceneRouter.cs" />
-    <Compile Include="GameVc\Results\ActionResult.cs" />
-    <Compile Include="GameVc\Results\ChangeScene.cs" />
-    <Compile Include="GameVc\Results\And.cs" />
-    <Compile Include="GameVc\Results\Continue.cs" />
-    <Compile Include="GameVc\Results\Exit.cs" />
-    <Compile Include="Scenes\GameBoard\GameBoardScreen.cs" />
-    <Compile Include="Scenes\GameBoard\GameBoardScreenRenderer.cs" />
-    <Compile Include="Scenes\Splash\SplashScreenRenderer.cs" />
-    <Compile Include="Scenes\Start\StartScreenRenderer.cs" />
-    <Compile Include="Scenes\Splash\SplashScreen.cs" />
-    <Compile Include="Scenes\Start\StartScreen.cs" />
-    <Compile Include="StarCrucible.cs" />
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">
       <HintPath>$(MSBuildProgramFiles32)\MonoGame\v3.0\Assemblies\Windows\MonoGame.Framework.dll</HintPath>
@@ -71,19 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Icon.ico" />
-  </ItemGroup>
-  <ItemGroup Condition="'$(NCrunch)' != '1'">
-    <MonoGameContentReference Include="Content\Content.mgcb" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="GameVc\Bootstrapping\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ElectricHead.GameVc\ElectricHead.GameVc.csproj">
-      <Project>{a2eb5d0e-5376-49f2-bda3-c447e34f8f40}</Project>
-      <Name>ElectricHead.GameVc</Name>
-    </ProjectReference>
+    <Compile Include="Class1.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Condition="'$(NCrunch)' != '1'" Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />

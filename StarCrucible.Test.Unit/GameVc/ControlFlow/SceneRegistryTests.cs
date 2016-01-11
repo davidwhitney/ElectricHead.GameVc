@@ -22,6 +22,17 @@ namespace StarCrucible.Test.Unit.GameVc.ControlFlow
         }
 
         [Test]
+        public void RendereFor_GivenBothSceneAndRenderer_ReturnsCorrectRenderer()
+        {
+            var registry = new SceneRegistry().Register<TestScene>();
+
+            var scene = new TestScene();
+            var renderer = registry.RendererFor(scene);
+
+            Assert.That(renderer, Is.TypeOf<TestSceneRenderer>());
+        }
+
+        [Test]
         public void AutoRegister_GivenThisTestAssemblyAndNamespaceFilter_RegisteresScenesAndRenderers()
         {
             var registry = new SceneRegistry();

@@ -14,6 +14,7 @@ namespace StarCrucible
         [STAThread]
         static void Main()
         {
+            var gvc = new ElectricHead.GameVc.GameVc();
             using (var game = new StarCrucible())
                 game.Run();
         }

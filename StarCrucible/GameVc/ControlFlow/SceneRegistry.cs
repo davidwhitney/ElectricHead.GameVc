@@ -48,13 +48,13 @@ namespace StarCrucible.GameVc.ControlFlow
             }
         }
         
-        public void Register<TScene>()
+        public SceneRegistry Register<TScene>()
             where TScene : IScene
         {
-            Register(typeof (TScene));
+            return Register(typeof (TScene));
         }
 
-        private void Register(Type sceneType)
+        private SceneRegistry Register(Type sceneType)
         {
             Scenes.Add(sceneType);
 
@@ -67,22 +67,24 @@ namespace StarCrucible.GameVc.ControlFlow
             }
 
             Renderers.Add((IRenderAScene)Activator.CreateInstance(rendererType));
+            return this;
         }
         
         public IRenderAScene RendererFor(IScene scene)
         {
             foreach (var renderer in Renderers)
             {
-                var args = renderer.GetType().GetGenericArguments();
-                if (args.Contains(scene.GetType()))
+                if (renderer.GetType().Name.StartsWith(scene.GetType().Name)) // This is naff, but w/e
                 {
                     return renderer;
                 }
             }
 
-            return null;
+            throw new Exception("OMG NO RENDERER");
 
-            //return Renderers.First(x => x.Supports(scene));
+            // maybe something like return Renderers.First(x => x.Supports(scene));
         }
+
+
     }
 }
