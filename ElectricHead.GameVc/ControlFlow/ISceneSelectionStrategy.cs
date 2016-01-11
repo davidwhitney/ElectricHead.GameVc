@@ -1,4 +1,4 @@
-namespace StarCrucible.GameVc.ControlFlow
+namespace ElectricHead.GameVc.ControlFlow
 {
     public interface ISceneSelectionStrategy
     {

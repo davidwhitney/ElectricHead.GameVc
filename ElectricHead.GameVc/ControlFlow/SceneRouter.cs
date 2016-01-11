@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Linq;
+using ElectricHead.GameVc.Rendering;
 using Microsoft.Xna.Framework;
-using StarCrucible.GameVc.Rendering;
 
-namespace StarCrucible.GameVc.ControlFlow
+namespace ElectricHead.GameVc.ControlFlow
 {
     public class SceneRouter : ISceneRouting
     {
@@ -64,7 +64,7 @@ namespace StarCrucible.GameVc.ControlFlow
 
         public void Draw(GameTime time)
         {
-            var renderer = (IRenderAScene<IScene>) _sceneRegistry.RendererFor(Current);
+            var renderer = _sceneRegistry.RendererFor(Current);
             renderer.Draw(_game, Current, time);
         }
     }

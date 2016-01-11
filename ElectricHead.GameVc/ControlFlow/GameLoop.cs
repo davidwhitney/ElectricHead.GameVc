@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
+using ElectricHead.GameVc.Results;
 using Microsoft.Xna.Framework;
-using StarCrucible.GameVc.Results;
 
-namespace StarCrucible.GameVc.ControlFlow
+namespace ElectricHead.GameVc.ControlFlow
 {
     public class GameLoop : List<Func<GameTime, ActionResult>>
     {

@@ -1,7 +1,7 @@
+using ElectricHead.GameVc.ControlFlow;
 using Microsoft.Xna.Framework;
-using StarCrucible.GameVc.ControlFlow;
 
-namespace StarCrucible.GameVc.Results
+namespace ElectricHead.GameVc.Results
 {
     public class Exit : ActionResult
     {

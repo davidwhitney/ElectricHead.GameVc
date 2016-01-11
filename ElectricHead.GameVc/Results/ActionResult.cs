@@ -1,7 +1,7 @@
-﻿using Microsoft.Xna.Framework;
-using StarCrucible.GameVc.ControlFlow;
+﻿using ElectricHead.GameVc.ControlFlow;
+using Microsoft.Xna.Framework;
 
-namespace StarCrucible.GameVc.Results
+namespace ElectricHead.GameVc.Results
 {
     public abstract class ActionResult
     {

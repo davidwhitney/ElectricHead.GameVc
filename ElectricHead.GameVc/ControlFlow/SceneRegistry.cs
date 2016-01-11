@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using StarCrucible.GameVc.Rendering;
+using ElectricHead.GameVc.Rendering;
 
-namespace StarCrucible.GameVc.ControlFlow
+namespace ElectricHead.GameVc.ControlFlow
 {
     public class SceneRegistry
     {

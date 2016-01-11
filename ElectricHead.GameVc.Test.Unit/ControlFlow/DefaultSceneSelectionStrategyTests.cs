@@ -1,8 +1,8 @@
-﻿using NUnit.Framework;
-using StarCrucible.GameVc.ControlFlow;
-using StarCrucible.Test.Unit.GameVc.ControlFlow.DetectionTestTypes;
+﻿using ElectricHead.GameVc.ControlFlow;
+using ElectricHead.GameVc.Test.Unit.ControlFlow.DetectionTestTypes;
+using NUnit.Framework;
 
-namespace StarCrucible.Test.Unit.GameVc.ControlFlow
+namespace ElectricHead.GameVc.Test.Unit.ControlFlow
 {
     [TestFixture]
     public class DefaultSceneSelectionStrategyTests

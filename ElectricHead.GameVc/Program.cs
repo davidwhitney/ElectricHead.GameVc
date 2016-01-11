@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace StarCrucible
+namespace ElectricHead.GameVc
 {
 #if WINDOWS || LINUX
     /// <summary>
@@ -14,8 +14,6 @@ namespace StarCrucible
         [STAThread]
         static void Main()
         {
-            using (var game = new StarCrucible())
-                game.Run();
         }
     }
 #endif

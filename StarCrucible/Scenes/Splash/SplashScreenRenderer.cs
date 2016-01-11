@@ -1,7 +1,6 @@
-﻿using Microsoft.Xna.Framework;
-using StarCrucible.GameVc;
-using StarCrucible.GameVc.ControlFlow;
-using StarCrucible.GameVc.Rendering;
+﻿using ElectricHead.GameVc.ControlFlow;
+using ElectricHead.GameVc.Rendering;
+using Microsoft.Xna.Framework;
 
 namespace StarCrucible.Scenes.Splash
 {

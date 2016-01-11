@@ -1,11 +1,11 @@
 ﻿using System;
+using ElectricHead.GameVc.ControlFlow;
+using ElectricHead.GameVc.Rendering;
+using ElectricHead.GameVc.Test.Unit.ControlFlow.DetectionTestTypes;
 using Microsoft.Xna.Framework;
 using NUnit.Framework;
-using StarCrucible.GameVc.ControlFlow;
-using StarCrucible.GameVc.Rendering;
-using StarCrucible.Test.Unit.GameVc.ControlFlow.DetectionTestTypes;
 
-namespace StarCrucible.Test.Unit.GameVc.ControlFlow
+namespace ElectricHead.GameVc.Test.Unit.ControlFlow
 {
     [TestFixture]
     public class SceneRegistryTests

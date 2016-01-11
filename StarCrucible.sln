@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarCrucible.Test.Unit", "S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElectricHead.GameVc", "ElectricHead.GameVc\ElectricHead.GameVc.csproj", "{A2EB5D0E-5376-49F2-BDA3-C447E34F8F40}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElectricHead.GameVc.Test.Unit", "ElectricHead.GameVc.Test.Unit\ElectricHead.GameVc.Test.Unit.csproj", "{161BC9C0-30ED-4C66-B66A-FE92676739D0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,14 @@ Global
 		{A2EB5D0E-5376-49F2-BDA3-C447E34F8F40}.Release|Any CPU.ActiveCfg = Release|x86
 		{A2EB5D0E-5376-49F2-BDA3-C447E34F8F40}.Release|x86.ActiveCfg = Release|x86
 		{A2EB5D0E-5376-49F2-BDA3-C447E34F8F40}.Release|x86.Build.0 = Release|x86
+		{161BC9C0-30ED-4C66-B66A-FE92676739D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{161BC9C0-30ED-4C66-B66A-FE92676739D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{161BC9C0-30ED-4C66-B66A-FE92676739D0}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{161BC9C0-30ED-4C66-B66A-FE92676739D0}.Debug|x86.Build.0 = Debug|Any CPU
+		{161BC9C0-30ED-4C66-B66A-FE92676739D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{161BC9C0-30ED-4C66-B66A-FE92676739D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{161BC9C0-30ED-4C66-B66A-FE92676739D0}.Release|x86.ActiveCfg = Release|Any CPU
+		{161BC9C0-30ED-4C66-B66A-FE92676739D0}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

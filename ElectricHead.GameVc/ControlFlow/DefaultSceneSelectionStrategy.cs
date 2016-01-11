@@ -1,6 +1,6 @@
 using System.Linq;
 
-namespace StarCrucible.GameVc.ControlFlow
+namespace ElectricHead.GameVc.ControlFlow
 {
     public class DefaultSceneSelectionStrategy : ISceneSelectionStrategy
     {

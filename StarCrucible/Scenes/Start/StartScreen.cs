@@ -1,8 +1,8 @@
-﻿using Microsoft.Xna.Framework;
+﻿using ElectricHead.GameVc.ControlFlow;
+using ElectricHead.GameVc.Results;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
-using StarCrucible.GameVc.ControlFlow;
-using StarCrucible.GameVc.Results;
-using static StarCrucible.GameVc.Results.And;
+using static ElectricHead.GameVc.Results.And;
 
 namespace StarCrucible.Scenes.Start
 {

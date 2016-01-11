@@ -1,4 +1,4 @@
-namespace StarCrucible.GameVc.Results
+namespace ElectricHead.GameVc.Results
 {
     public static class And
     {

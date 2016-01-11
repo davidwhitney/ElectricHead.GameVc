@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{161BC9C0-30ED-4C66-B76A-FE92676739D0}</ProjectGuid>
+    <ProjectGuid>{161BC9C0-30ED-4C66-B66A-FE92676739D0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>StarCrucible.Test.Unit</RootNamespace>
-    <AssemblyName>StarCrucible.Test.Unit</AssemblyName>
+    <RootNamespace>ElectricHead.GameVc.Test.Unit</RootNamespace>
+    <AssemblyName>ElectricHead.GameVc.Test.Unit</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -44,6 +44,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ControlFlow\DefaultSceneSelectionStrategyTests.cs" />
+    <Compile Include="ControlFlow\SceneRegistryTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -51,9 +53,9 @@
       <Project>{a2eb5d0e-5376-49f2-bda3-c447e34f8f40}</Project>
       <Name>ElectricHead.GameVc</Name>
     </ProjectReference>
-    <ProjectReference Include="..\StarCrucible\StarCrucible.csproj">
+    <ProjectReference Include="..\ElectricHead.GameVc\ElectricHead.GameVc.csproj">
       <Project>{A2EB5D0E-5376-49F2-BDA3-C447E34F8E40}</Project>
-      <Name>StarCrucible</Name>
+      <Name>ElectricHead.GameVc</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

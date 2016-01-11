@@ -1,7 +1,7 @@
-﻿using Microsoft.Xna.Framework;
-using StarCrucible.GameVc.Results;
+﻿using ElectricHead.GameVc.Results;
+using Microsoft.Xna.Framework;
 
-namespace StarCrucible.GameVc.ControlFlow
+namespace ElectricHead.GameVc.ControlFlow
 {
     public interface IScene
     {

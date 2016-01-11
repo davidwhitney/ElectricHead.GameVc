@@ -1,6 +1,6 @@
-﻿using Microsoft.Xna.Framework;
+﻿using ElectricHead.GameVc.ControlFlow;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using StarCrucible.GameVc.ControlFlow;
 
 namespace StarCrucible
 {
