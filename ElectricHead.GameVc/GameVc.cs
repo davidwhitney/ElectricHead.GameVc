@@ -21,7 +21,7 @@ namespace ElectricHead.GameVc
         {
             _theGame = theGame;
             _theGame.Content.RootDirectory = contentDirectory;
-            _renderingContext = new RenderingContext(theGame, new GraphicsDeviceManager(theGame));
+            _renderingContext = new RenderingContext { Game = _theGame, GraphicsDevice = new GraphicsDeviceManager(theGame)};
 
             SceneRouteTable = new SceneRouteTable();
             SceneRegistrar = new SceneRegistrar(SceneRouteTable);
@@ -60,8 +60,7 @@ namespace ElectricHead.GameVc
         public void Draw(GameTime time)
         {
             var renderer = SceneRouteTable.RendererFor(Router.Current);
-            var context = _renderingContext.WithSceneAtTime(Router.Current, time);
-            renderer.Draw(context);
+            renderer.Draw(_renderingContext, Router.Current, time);
         }
     }
 }

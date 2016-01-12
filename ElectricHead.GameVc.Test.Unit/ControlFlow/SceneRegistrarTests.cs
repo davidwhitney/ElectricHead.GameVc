@@ -68,7 +68,7 @@ namespace ElectricHead.GameVc.Test.Unit.ControlFlow
                 throw new NotImplementedException();
             }
 
-            public void Draw(RenderingContext context)
+            public void Draw(RenderingContext context, IScene currentScene, GameTime now)
             {
                 throw new NotImplementedException();
             }

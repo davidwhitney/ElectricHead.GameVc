@@ -6,7 +6,7 @@ namespace StarCrucible.Scenes.Splash
 {
     public class SplashScreenRenderer : IRenderAScene<SplashScreen>
     {
-        public void Draw(RenderingContext context)
+        public void Draw(RenderingContext context, IScene currentScene, GameTime now)
         {
             context.Game.GraphicsDevice.Clear(Color.Black);
         }

@@ -9,6 +9,6 @@ namespace ElectricHead.GameVc.Rendering
 
     public interface IRenderAScene
     {
-        void Draw(RenderingContext context);
+        void Draw(RenderingContext context, IScene currentScene, GameTime now);
     }
 }
