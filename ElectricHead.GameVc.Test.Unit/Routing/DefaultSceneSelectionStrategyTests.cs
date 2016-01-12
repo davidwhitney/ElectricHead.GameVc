@@ -1,9 +1,9 @@
-﻿using ElectricHead.GameVc.ControlFlow;
-using ElectricHead.GameVc.Routing;
-using ElectricHead.GameVc.Test.Unit.ControlFlow.DetectionTestTypes;
+﻿using ElectricHead.GameVc.Routing;
+using ElectricHead.GameVc.Test.Unit.SceneRegistration;
+using ElectricHead.GameVc.Test.Unit.SceneRegistration.DetectionTestTypes;
 using NUnit.Framework;
 
-namespace ElectricHead.GameVc.Test.Unit.ControlFlow
+namespace ElectricHead.GameVc.Test.Unit.Routing
 {
     [TestFixture]
     public class DefaultSceneSelectionStrategyTests
@@ -16,7 +16,7 @@ namespace ElectricHead.GameVc.Test.Unit.ControlFlow
         [TestCase("StartScreen")]
         [TestCase("SplashScene")]
         [TestCase("SplashScreen")]
-        public void SelectDefaultScene_GivenPopulatedRegistry_FindsDefault(string correctChoice)
+        public void SelectDefaultScene_GivenPopulatedRegistry_FindsSceneWithReservedName(string correctChoice)
         {
             var strategy = new DefaultSceneSelectionStrategy();
 
@@ -26,16 +26,15 @@ namespace ElectricHead.GameVc.Test.Unit.ControlFlow
         }
 
         [Test]
-        public void SelectDefaultScene_GivenPopulatedRegistry_FindsDefault()
+        public void SelectDefaultScene_GivenRegistryWithNoReservedNames_ReturnsFirstEntry()
         {
             var registry = new SceneRouteTable();
             registry.Scenes.Add(typeof(TestScene));
-            registry.Scenes.Add(typeof(HomeScene));
             registry.Scenes.Add(typeof(RandomScene));
 
             var start = new DefaultSceneSelectionStrategy().SelectStartScene(registry);
 
-            Assert.That(start, Is.EqualTo("HomeScene"));
+            Assert.That(start, Is.EqualTo("TestScene"));
         }
     }
 }
