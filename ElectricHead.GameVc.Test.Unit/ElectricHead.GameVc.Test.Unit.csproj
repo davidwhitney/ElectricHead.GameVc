@@ -44,8 +44,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ControlFlow\DefaultSceneSelectionStrategyTests.cs" />
-    <Compile Include="ControlFlow\SceneRegistrarTests.cs" />
+    <Compile Include="Routing\DefaultSceneSelectionStrategyTests.cs" />
+    <Compile Include="SceneRegistration\SceneRegistrarTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

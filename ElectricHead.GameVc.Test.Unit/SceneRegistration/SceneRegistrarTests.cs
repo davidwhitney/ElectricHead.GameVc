@@ -1,13 +1,12 @@
 ﻿using System;
-using ElectricHead.GameVc.ControlFlow;
 using ElectricHead.GameVc.Rendering;
 using ElectricHead.GameVc.Routing;
 using ElectricHead.GameVc.SceneRegistration;
-using ElectricHead.GameVc.Test.Unit.ControlFlow.DetectionTestTypes;
+using ElectricHead.GameVc.Test.Unit.SceneRegistration.DetectionTestTypes;
 using Microsoft.Xna.Framework;
 using NUnit.Framework;
 
-namespace ElectricHead.GameVc.Test.Unit.ControlFlow
+namespace ElectricHead.GameVc.Test.Unit.SceneRegistration
 {
     [TestFixture]
     public class SceneRegistrarTests
