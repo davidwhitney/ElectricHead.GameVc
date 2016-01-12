@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using ElectricHead.GameVc.Rendering;
 using Microsoft.Xna.Framework;
 
 namespace ElectricHead.GameVc.ControlFlow
@@ -27,7 +26,8 @@ namespace ElectricHead.GameVc.ControlFlow
 
             _gameLoop = new GameLoop(_game, this,
                 t => Current.PreUpdate(),
-                t => Current.Update(t)
+                t => Current.Update(t),
+                t => Current.PostUpdate()
                 );
         }
 

@@ -61,7 +61,6 @@
   <ItemGroup Condition="'$(NCrunch)' != '1'">
     <MonoGameContentReference Include="Content\Content.mgcb" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\ElectricHead.GameVc\ElectricHead.GameVc.csproj">
       <Project>{a2eb5d0e-5376-49f2-bda3-c447e34f8f40}</Project>

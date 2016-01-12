@@ -58,7 +58,6 @@
     <Compile Include="ControlFlow\SceneCache.cs" />
     <Compile Include="ControlFlow\SceneRegistry.cs" />
     <Compile Include="ControlFlow\SceneRouter.cs" />
-    <Compile Include="Program.cs" />
     <Compile Include="Rendering\IRenderAScene.cs" />
     <Compile Include="Results\ActionResult.cs" />
     <Compile Include="Results\And.cs" />
