@@ -1,12 +1,12 @@
 using System.Linq;
 
-namespace ElectricHead.GameVc.ControlFlow
+namespace ElectricHead.GameVc.Routing
 {
     public class DefaultSceneSelectionStrategy : ISceneSelectionStrategy
     {
-        public string SelectStartScene(SceneRegistry registry)
+        public string SelectStartScene(SceneRouteTable routeTable)
         {
-            return SelectStartScene(registry.Scenes.Select(x => x.Name).ToArray());
+            return SelectStartScene(routeTable.Scenes.Select(x => x.Name).ToArray());
         }
 
         public string SelectStartScene(params string[] options)

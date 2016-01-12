@@ -1,7 +1,7 @@
-﻿using ElectricHead.GameVc.Results;
+﻿using ElectricHead.GameVc.Routing.Results;
 using Microsoft.Xna.Framework;
 
-namespace ElectricHead.GameVc.ControlFlow
+namespace ElectricHead.GameVc
 {
     public class Scene : IScene
     {

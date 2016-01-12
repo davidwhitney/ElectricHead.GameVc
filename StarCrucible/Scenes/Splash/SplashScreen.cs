@@ -1,9 +1,10 @@
 ﻿using System;
+using ElectricHead.GameVc;
 using ElectricHead.GameVc.ControlFlow;
-using ElectricHead.GameVc.Results;
+using ElectricHead.GameVc.Routing.Results;
 using Microsoft.Xna.Framework;
 using StarCrucible.Scenes.Start;
-using static ElectricHead.GameVc.Results.And;
+using static ElectricHead.GameVc.Routing.Results.And;
 
 namespace StarCrucible.Scenes.Splash
 {

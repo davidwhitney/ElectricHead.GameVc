@@ -1,4 +1,5 @@
 ﻿using ElectricHead.GameVc.ControlFlow;
+using ElectricHead.GameVc.Routing;
 using ElectricHead.GameVc.Test.Unit.ControlFlow.DetectionTestTypes;
 using NUnit.Framework;
 
@@ -27,7 +28,7 @@ namespace ElectricHead.GameVc.Test.Unit.ControlFlow
         [Test]
         public void SelectDefaultScene_GivenPopulatedRegistry_FindsDefault()
         {
-            var registry = new SceneRegistry();
+            var registry = new SceneRouteTable();
             registry.Scenes.Add(typeof(TestScene));
             registry.Scenes.Add(typeof(HomeScene));
             registry.Scenes.Add(typeof(RandomScene));

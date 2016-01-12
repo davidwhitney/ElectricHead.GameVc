@@ -1,8 +1,8 @@
-namespace ElectricHead.GameVc.ControlFlow
+namespace ElectricHead.GameVc.Routing
 {
     public interface ISceneSelectionStrategy
     {
-        string SelectStartScene(SceneRegistry registry);
+        string SelectStartScene(SceneRouteTable routeTable);
         string SelectStartScene(params string[] options);
     }
 }

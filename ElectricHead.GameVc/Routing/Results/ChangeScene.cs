@@ -1,8 +1,7 @@
 using System;
-using ElectricHead.GameVc.ControlFlow;
 using Microsoft.Xna.Framework;
 
-namespace ElectricHead.GameVc.Results
+namespace ElectricHead.GameVc.Routing.Results
 {
     public class ChangeScene : ActionResult
     {
@@ -13,7 +12,7 @@ namespace ElectricHead.GameVc.Results
             TargetScene = targetScene;
         }
 
-        public override void Execute(Game game, ISceneRouting router)
+        public override void Execute(Game game, ISceneRouter router)
         {
             router.RedirectTo(TargetScene);
         }

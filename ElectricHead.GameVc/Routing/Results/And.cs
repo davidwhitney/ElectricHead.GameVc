@@ -1,4 +1,4 @@
-namespace ElectricHead.GameVc.Results
+namespace ElectricHead.GameVc.Routing.Results
 {
     public static class And
     {

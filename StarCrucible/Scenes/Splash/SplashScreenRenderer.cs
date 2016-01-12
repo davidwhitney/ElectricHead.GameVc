@@ -1,4 +1,4 @@
-﻿using ElectricHead.GameVc.ControlFlow;
+﻿using ElectricHead.GameVc;
 using ElectricHead.GameVc.Rendering;
 using Microsoft.Xna.Framework;
 
@@ -6,9 +6,9 @@ namespace StarCrucible.Scenes.Splash
 {
     public class SplashScreenRenderer : IRenderAScene<SplashScreen>
     {
-        public void Draw(Game game, IScene current, GameTime gameTime)
+        public void Draw(RenderingContext context)
         {
-            game.GraphicsDevice.Clear(Color.Black);
+            context.Game.GraphicsDevice.Clear(Color.Black);
         }
     }
 }

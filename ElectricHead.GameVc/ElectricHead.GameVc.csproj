@@ -49,21 +49,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ControlFlow\DefaultSceneSelectionStrategy.cs" />
+    <Compile Include="Routing\DefaultSceneSelectionStrategy.cs" />
     <Compile Include="ControlFlow\GameLoop.cs" />
-    <Compile Include="ControlFlow\IScene.cs" />
-    <Compile Include="ControlFlow\ISceneRouting.cs" />
-    <Compile Include="ControlFlow\ISceneSelectionStrategy.cs" />
-    <Compile Include="ControlFlow\Scene.cs" />
-    <Compile Include="ControlFlow\SceneCache.cs" />
-    <Compile Include="ControlFlow\SceneRegistry.cs" />
-    <Compile Include="ControlFlow\SceneRouter.cs" />
+    <Compile Include="SceneRegistration\IRegisterScenes.cs" />
+    <Compile Include="IScene.cs" />
+    <Compile Include="Routing\ISceneRouter.cs" />
+    <Compile Include="Routing\ISceneRouteTable.cs" />
+    <Compile Include="Routing\ISceneSelectionStrategy.cs" />
+    <Compile Include="Scene.cs" />
+    <Compile Include="SceneRegistration\SceneRegistrar.cs" />
+    <Compile Include="Routing\SceneRouteTable.cs" />
+    <Compile Include="Routing\SceneRouter.cs" />
+    <Compile Include="GameVc.cs" />
+    <Compile Include="RenderingContext.cs" />
     <Compile Include="Rendering\IRenderAScene.cs" />
-    <Compile Include="Results\ActionResult.cs" />
-    <Compile Include="Results\And.cs" />
-    <Compile Include="Results\ChangeScene.cs" />
-    <Compile Include="Results\Continue.cs" />
-    <Compile Include="Results\Exit.cs" />
+    <Compile Include="Routing\Results\ActionResult.cs" />
+    <Compile Include="Routing\Results\And.cs" />
+    <Compile Include="Routing\Results\ChangeScene.cs" />
+    <Compile Include="Routing\Results\Continue.cs" />
+    <Compile Include="Routing\Results\Exit.cs" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\GameVc.mgcb" />

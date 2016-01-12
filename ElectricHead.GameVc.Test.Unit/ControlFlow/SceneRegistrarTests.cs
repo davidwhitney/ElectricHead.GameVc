@@ -1,6 +1,8 @@
 ﻿using System;
 using ElectricHead.GameVc.ControlFlow;
 using ElectricHead.GameVc.Rendering;
+using ElectricHead.GameVc.Routing;
+using ElectricHead.GameVc.SceneRegistration;
 using ElectricHead.GameVc.Test.Unit.ControlFlow.DetectionTestTypes;
 using Microsoft.Xna.Framework;
 using NUnit.Framework;
@@ -8,26 +10,34 @@ using NUnit.Framework;
 namespace ElectricHead.GameVc.Test.Unit.ControlFlow
 {
     [TestFixture]
-    public class SceneRegistryTests
+    public class SceneRegistrarTests
     {
+        private SceneRouteTable _routeTable;
+        private SceneRegistrar _registrar;
+
+        [SetUp]
+        public void SetUp()
+        {
+            _routeTable = new SceneRouteTable();
+            _registrar = new SceneRegistrar(_routeTable);
+        }
+
         [Test]
         public void Register_GivenBothSceneAndRenderer_AddsSceneAndDetectsDefaultRenderer()
         {
-            var registry = new SceneRegistry();
+            _registrar.Register<TestScene>();
 
-            registry.Register<TestScene>();
-
-            Assert.That(registry.Scenes[0], Is.EqualTo(typeof(TestScene)));
-            Assert.That(registry.Renderers[0], Is.TypeOf<TestSceneRenderer>());
+            Assert.That(_routeTable.Scenes[0], Is.EqualTo(typeof(TestScene)));
+            Assert.That(_routeTable.Renderers[0], Is.TypeOf<TestSceneRenderer>());
         }
 
         [Test]
         public void RendereFor_GivenBothSceneAndRenderer_ReturnsCorrectRenderer()
         {
-            var registry = new SceneRegistry().Register<TestScene>();
+            _registrar.Register<TestScene>();
 
             var scene = new TestScene();
-            var renderer = registry.RendererFor(scene);
+            var renderer = _routeTable.RendererFor(scene);
 
             Assert.That(renderer, Is.TypeOf<TestSceneRenderer>());
         }
@@ -35,12 +45,10 @@ namespace ElectricHead.GameVc.Test.Unit.ControlFlow
         [Test]
         public void AutoRegister_GivenThisTestAssemblyAndNamespaceFilter_RegisteresScenesAndRenderers()
         {
-            var registry = new SceneRegistry();
+            _registrar.RegisterScenesFromNamespaceContaining<TestScene>();
 
-            registry.AutoRegisterFromNamespaceContaining<TestScene>();
-
-            Assert.That(registry.Scenes[0], Is.EqualTo(typeof(TestScene)));
-            Assert.That(registry.Renderers[0], Is.TypeOf<TestSceneRenderer>());
+            Assert.That(_routeTable.Scenes[0], Is.EqualTo(typeof(TestScene)));
+            Assert.That(_routeTable.Renderers[0], Is.TypeOf<TestSceneRenderer>());
         }
     }
     
@@ -60,7 +68,7 @@ namespace ElectricHead.GameVc.Test.Unit.ControlFlow
                 throw new NotImplementedException();
             }
 
-            public void Draw(Game game, IScene current, GameTime gameTime)
+            public void Draw(RenderingContext context)
             {
                 throw new NotImplementedException();
             }
