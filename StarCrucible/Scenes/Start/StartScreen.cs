@@ -1,5 +1,4 @@
 ﻿using ElectricHead.GameVc;
-using ElectricHead.GameVc.ControlFlow;
 using ElectricHead.GameVc.Routing.Results;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
@@ -17,6 +16,16 @@ namespace StarCrucible.Scenes.Start
                 return QuitToDesktop;
             }
 
+            return NoOp;
+        }
+
+        public override ActionResult Update(GameTime gameTime)
+        {
+            return NoOp;
+        }
+
+        public override ActionResult PostUpdate()
+        {
             return NoOp;
         }
     }
