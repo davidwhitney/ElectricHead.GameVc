@@ -1,4 +1,7 @@
-﻿using ElectricHead.GameVc.ControlFlow;
+﻿using System;
+using System.Security.Cryptography.X509Certificates;
+using ElectricHead.GameVc.ControlFlow;
+using ElectricHead.GameVc.ErrorHandling;
 using ElectricHead.GameVc.Routing;
 using ElectricHead.GameVc.SceneRegistration;
 using Microsoft.Xna.Framework;
@@ -11,9 +14,9 @@ namespace ElectricHead.GameVc
         public ISceneRouter Router { get; set; }
         public ISceneRouteTable SceneRouteTable { get; set; }
         public IRegisterScenes SceneRegistrar { get; set; }
+        public IGlobalErrorHandler ErrorHandler { get; set; }
 
         private readonly Game _theGame;
-
         private readonly GameLoop _gameLoop;
         private readonly RenderingContext _renderingContext;
 
@@ -54,13 +57,33 @@ namespace ElectricHead.GameVc
 
         public void Update(GameTime time)
         {
-            _gameLoop.Invoke(time);
+            try
+            {
+                _gameLoop.Invoke(time);
+            }
+            catch(Exception ex) when (ErrorHandler != null)
+            {
+                ErrorHandler.OnException(ex);
+            }
         }
 
         public void Draw(GameTime time)
         {
-            var renderer = SceneRouteTable.RendererFor(Router.Current);
-            renderer.Draw(_renderingContext, Router.Current, time);
+            try
+            {
+                var renderer = SceneRouteTable.RendererFor(Router.Current);
+                renderer.Draw(_renderingContext, Router.Current, time);
+            }
+            catch (Exception ex) when (ErrorHandler != null)
+            {
+                ErrorHandler.OnException(ex);
+            }
+        }
+
+        public GameVc OnError(Action<Exception> handler)
+        {
+            ErrorHandler = new ErrorActionHandler(handler);
+            return this;
         }
     }
 }

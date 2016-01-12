@@ -49,6 +49,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ErrorHandling\ErrorActionHandler.cs" />
+    <Compile Include="ErrorHandling\IGlobalErrorHandler.cs" />
     <Compile Include="Routing\DefaultSceneSelectionStrategy.cs" />
     <Compile Include="ControlFlow\GameLoop.cs" />
     <Compile Include="SceneRegistration\IRegisterScenes.cs" />
