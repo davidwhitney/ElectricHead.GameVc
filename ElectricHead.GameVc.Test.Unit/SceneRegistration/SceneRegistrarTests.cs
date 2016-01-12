@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net.Mime;
 using ElectricHead.GameVc.Rendering;
 using ElectricHead.GameVc.Routing;
 using ElectricHead.GameVc.SceneRegistration;
@@ -27,18 +28,18 @@ namespace ElectricHead.GameVc.Test.Unit.SceneRegistration
             _registrar.Register<TestScene>();
 
             Assert.That(_routeTable.Scenes[0], Is.EqualTo(typeof(TestScene)));
-            Assert.That(_routeTable.Renderers[0], Is.TypeOf<TestSceneRenderer>());
+            Assert.That(_routeTable.Renderers[0], Is.EqualTo(typeof(TestSceneRenderer)));
         }
 
         [Test]
-        public void RendereFor_GivenBothSceneAndRenderer_ReturnsCorrectRenderer()
+        public void RendereeFor_GivenBothSceneAndRenderer_ReturnsRenderingProxyToWorkAroundTypeConstraints()
         {
             _registrar.Register<TestScene>();
 
             var scene = new TestScene();
             var renderer = _routeTable.RendererFor(scene);
 
-            Assert.That(renderer, Is.TypeOf<TestSceneRenderer>());
+            Assert.That(renderer, Is.TypeOf<RenderingProxy>());
         }
 
         [Test]
@@ -47,7 +48,7 @@ namespace ElectricHead.GameVc.Test.Unit.SceneRegistration
             _registrar.RegisterScenesFromNamespaceContaining<TestScene>();
 
             Assert.That(_routeTable.Scenes[0], Is.EqualTo(typeof(TestScene)));
-            Assert.That(_routeTable.Renderers[0], Is.TypeOf<TestSceneRenderer>());
+            Assert.That(_routeTable.Renderers[0], Is.EqualTo(typeof(TestSceneRenderer)));
         }
     }
     
@@ -60,17 +61,13 @@ namespace ElectricHead.GameVc.Test.Unit.SceneRegistration
         {
         }
 
-        public class TestSceneRenderer : IRenderAScene
+        public class TestSceneRenderer : IRenderAScene<TestScene>
         {
-            public bool Supports(IScene scene)
+            public void Draw(RenderingContext context, TestScene currentScene, GameTime now)
             {
                 throw new NotImplementedException();
             }
 
-            public void Draw(RenderingContext context, IScene currentScene, GameTime now)
-            {
-                throw new NotImplementedException();
-            }
         }
     }
 }

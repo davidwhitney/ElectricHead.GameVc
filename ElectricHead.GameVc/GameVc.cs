@@ -70,8 +70,8 @@ namespace ElectricHead.GameVc
         {
             try
             {
-                var renderer = SceneRouteTable.RendererFor(Router.Current);
-                renderer.Draw(_renderingContext, Router.Current, time);
+                SceneRouteTable.RendererFor(Router.Current)
+                               .Render(_renderingContext, time);
             }
             catch (Exception ex) when (ErrorHandler != null)
             {

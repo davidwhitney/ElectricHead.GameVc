@@ -7,9 +7,9 @@ namespace ElectricHead.GameVc.Routing
     public interface ISceneRouteTable
     {
         List<Type> Scenes { get; }
-        List<IRenderAScene> Renderers { get; }
+        List<Type> Renderers { get; }
         ISceneSelectionStrategy SceneSelectionStragety { get; set; }
         Type DefaultScene();
-        IRenderAScene RendererFor(IScene scene);
+        RenderingProxy RendererFor<TSceneType>(TSceneType scene) where TSceneType : IScene;
     }
 }

@@ -65,7 +65,7 @@ namespace ElectricHead.GameVc.SceneRegistration
                 throw new Exception("Can't find renderer for " + sceneType.FullName);
             }
 
-            _routeTable.Renderers.Add((IRenderAScene)Activator.CreateInstance(rendererType));
+            _routeTable.Renderers.Add(rendererType);
             return this;
         }
     }

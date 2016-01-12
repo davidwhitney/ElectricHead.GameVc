@@ -1,21 +1,23 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using ElectricHead.GameVc.Rendering;
+using Microsoft.Xna.Framework;
 
 namespace ElectricHead.GameVc.Routing
 {
     public class SceneRouteTable : ISceneRouteTable
     {
         public List<Type> Scenes { get; }
-        public List<IRenderAScene> Renderers { get; }
+        public List<Type> Renderers { get; }
         public ISceneSelectionStrategy SceneSelectionStragety { get; set; }
 
         public SceneRouteTable()
         {
             SceneSelectionStragety = new DefaultSceneSelectionStrategy();
             Scenes = new List<Type>();
-            Renderers = new List<IRenderAScene>();
+            Renderers = new List<Type>();
         }
 
         public Type DefaultScene()
@@ -24,19 +26,18 @@ namespace ElectricHead.GameVc.Routing
             return Scenes.First(x => x.Name == selected);
         }
 
-        public IRenderAScene RendererFor(IScene scene)
+        public RenderingProxy RendererFor<TSceneType>(TSceneType scene) where TSceneType : IScene
         {
             foreach (var renderer in Renderers)
             {
-                if (renderer.GetType().Name.StartsWith(scene.GetType().Name)) // This is naff, but w/e
+                if (renderer.GetInterface(typeof(IRenderAScene<>).Name) != null
+                    && renderer.GetInterface(typeof(IRenderAScene<>).Name).GetGenericArguments().Single() == scene.GetType())
                 {
-                    return renderer;
+                    return new RenderingProxy(scene, renderer);
                 }
             }
 
             throw new Exception("OMG NO RENDERER");
-            // maybe something like return Renderers.First(x => x.Supports(scene));
         }
-
     }
 }

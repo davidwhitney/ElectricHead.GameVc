@@ -1,14 +1,9 @@
-﻿using ElectricHead.GameVc.ControlFlow;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 
 namespace ElectricHead.GameVc.Rendering
 {
-    public interface IRenderAScene<in TSceneType> : IRenderAScene where TSceneType : IScene
+    public interface IRenderAScene<in TScene> where TScene : IScene
     {
-    }
-
-    public interface IRenderAScene
-    {
-        void Draw(RenderingContext context, IScene currentScene, GameTime now);
+        void Draw(RenderingContext context, TScene currentScene, GameTime now);
     }
 }

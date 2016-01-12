@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="ErrorHandling\ErrorActionHandler.cs" />
     <Compile Include="ErrorHandling\IGlobalErrorHandler.cs" />
+    <Compile Include="Rendering\RenderingProxy.cs" />
     <Compile Include="Routing\DefaultSceneSelectionStrategy.cs" />
     <Compile Include="ControlFlow\GameLoop.cs" />
     <Compile Include="SceneRegistration\IRegisterScenes.cs" />
@@ -73,6 +74,9 @@
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\GameVc.mgcb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="TypeActivation\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Condition="'$(NCrunch)' != '1'" Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />
