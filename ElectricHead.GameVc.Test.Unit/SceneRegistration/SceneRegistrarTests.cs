@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Net.Mime;
 using ElectricHead.GameVc.Rendering;
 using ElectricHead.GameVc.Routing;
 using ElectricHead.GameVc.SceneRegistration;
@@ -39,7 +38,7 @@ namespace ElectricHead.GameVc.Test.Unit.SceneRegistration
             var scene = new TestScene();
             var renderer = _routeTable.RendererFor(scene);
 
-            Assert.That(renderer, Is.TypeOf<RenderingProxy>());
+            Assert.That(renderer, Is.EqualTo(typeof(TestSceneRenderer)));
         }
 
         [Test]

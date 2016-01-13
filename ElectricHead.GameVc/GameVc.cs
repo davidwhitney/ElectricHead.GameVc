@@ -22,6 +22,8 @@ namespace ElectricHead.GameVc
         private readonly GameLoop _gameLoop;
         private readonly RenderingContext _renderingContext;
 
+        private IScene CurrentScene => Router.Current;
+
         public GameVc(Game theGame, string contentDirectory = "Content")
         {
             _theGame = theGame;
@@ -35,9 +37,9 @@ namespace ElectricHead.GameVc
             Router = new SceneRouter(SceneRouteTable, new SceneCache(DependencyResolver));
 
             _gameLoop = new GameLoop(theGame, Router,
-                t => Router.Current.PreUpdate(),
-                t => Router.Current.Update(t),
-                t => Router.Current.PostUpdate()
+                t => CurrentScene.PreUpdate(),
+                t => CurrentScene.Update(t),
+                t => CurrentScene.PostUpdate()
                 );
         }
 
@@ -79,7 +81,7 @@ namespace ElectricHead.GameVc
                 var rendererInstance = DependencyResolver.CreateInstance(rendererType);
                 var proxy = new RenderASceneProxy(rendererInstance);
 
-                proxy.Draw(_renderingContext, Router.Current, time);
+                proxy.Draw(_renderingContext, CurrentScene, time);
             }
             catch (Exception ex) when (ErrorHandler != null)
             {
