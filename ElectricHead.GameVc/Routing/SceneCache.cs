@@ -1,17 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using ElectricHead.GameVc.TypeActivation;
 
 namespace ElectricHead.GameVc.Routing
 {
     public class SceneCache
     {
-        private readonly IDependencyResolver _dependencyResolver;
+        private readonly Func<Type, object> _createType;
         private readonly Dictionary<Type, IScene> _runningInstances;
 
-        public SceneCache(IDependencyResolver dependencyResolver)
+        public SceneCache(Func<Type, object> createType)
         {
-            _dependencyResolver = dependencyResolver;
+            _createType = createType;
             _runningInstances = new Dictionary<Type, IScene>();
         }
 
@@ -19,7 +18,7 @@ namespace ElectricHead.GameVc.Routing
         {
             if (!_runningInstances.ContainsKey(sceneType))
             {
-                var instance = (IScene)_dependencyResolver.CreateInstance(sceneType);
+                var instance = (IScene)_createType(sceneType);
                 _runningInstances.Add(sceneType, instance);
             }
 

@@ -34,7 +34,7 @@ namespace ElectricHead.GameVc
 
             SceneRouteTable = new SceneRouteTable();
             SceneRegistrar = new SceneRegistrar(SceneRouteTable);
-            Router = new SceneRouter(SceneRouteTable, new SceneCache(DependencyResolver));
+            Router = new SceneRouter(SceneRouteTable, new SceneCache(DependencyResolver.CreateInstance));
 
             _gameLoop = new GameLoop(theGame, Router,
                 t => CurrentScene.PreUpdate(),
