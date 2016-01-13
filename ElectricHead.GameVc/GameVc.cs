@@ -1,8 +1,10 @@
 ﻿using System;
 using ElectricHead.GameVc.ControlFlow;
 using ElectricHead.GameVc.ErrorHandling;
+using ElectricHead.GameVc.Rendering;
 using ElectricHead.GameVc.Routing;
 using ElectricHead.GameVc.SceneRegistration;
+using ElectricHead.GameVc.TypeActivation;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -14,6 +16,7 @@ namespace ElectricHead.GameVc
         public ISceneRouteTable SceneRouteTable { get; set; }
         public IRegisterScenes SceneRegistrar { get; set; }
         public IGlobalErrorHandler ErrorHandler { get; set; }
+        public IDependencyResolver DependencyResolver { get; set; }
 
         private readonly Game _theGame;
         private readonly GameLoop _gameLoop;
@@ -25,9 +28,11 @@ namespace ElectricHead.GameVc
             _theGame.Content.RootDirectory = contentDirectory;
             _renderingContext = new RenderingContext { Game = _theGame, GraphicsDevice = new GraphicsDeviceManager(theGame)};
 
+            DependencyResolver = new ActivationShim(Activator.CreateInstance);
+
             SceneRouteTable = new SceneRouteTable();
             SceneRegistrar = new SceneRegistrar(SceneRouteTable);
-            Router = new SceneRouter(SceneRouteTable);
+            Router = new SceneRouter(SceneRouteTable, new SceneCache(DependencyResolver));
 
             _gameLoop = new GameLoop(theGame, Router,
                 t => Router.Current.PreUpdate(),
@@ -70,8 +75,11 @@ namespace ElectricHead.GameVc
         {
             try
             {
-                SceneRouteTable.RendererFor(Router.Current)
-                               .Render(_renderingContext, time);
+                var rendererType = SceneRouteTable.RendererFor(Router.Current);
+                var rendererInstance = DependencyResolver.CreateInstance(rendererType);
+                var proxy = new RenderASceneProxy(rendererInstance);
+
+                proxy.Draw(_renderingContext, Router.Current, time);
             }
             catch (Exception ex) when (ErrorHandler != null)
             {

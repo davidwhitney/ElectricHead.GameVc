@@ -26,14 +26,14 @@ namespace ElectricHead.GameVc.Routing
             return Scenes.First(x => x.Name == selected);
         }
 
-        public RenderingProxy RendererFor<TSceneType>(TSceneType scene) where TSceneType : IScene
+        public Type RendererFor<TSceneType>(TSceneType scene) where TSceneType : IScene
         {
             foreach (var renderer in Renderers)
             {
                 if (renderer.GetInterface(typeof(IRenderAScene<>).Name) != null
                     && renderer.GetInterface(typeof(IRenderAScene<>).Name).GetGenericArguments().Single() == scene.GetType())
                 {
-                    return new RenderingProxy(scene, renderer);
+                    return renderer;
                 }
             }
 

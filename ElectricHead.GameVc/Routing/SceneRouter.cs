@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace ElectricHead.GameVc.Routing
@@ -11,10 +10,10 @@ namespace ElectricHead.GameVc.Routing
 
         public IScene Current => _cache.For(_sceneRouteTable.Scenes.First());
 
-        public SceneRouter(ISceneRouteTable routeTable)
+        public SceneRouter(ISceneRouteTable routeTable, SceneCache cache)
         {
-            _cache = new SceneCache();
             _sceneRouteTable = routeTable;
+            _cache = cache;
         }
 
         public SceneRouter StartWith<TScene>()
@@ -32,25 +31,5 @@ namespace ElectricHead.GameVc.Routing
             _sceneRouteTable.Scenes.Insert(0, sceneType);
         }
 
-        private class SceneCache
-        {
-            private readonly Dictionary<Type, IScene> _runningInstances;
-
-            public SceneCache()
-            {
-                _runningInstances = new Dictionary<Type, IScene>();
-            }
-
-            public IScene For(Type sceneType)
-            {
-                if (!_runningInstances.ContainsKey(sceneType))
-                {
-                    var instance = (IScene)Activator.CreateInstance(sceneType);
-                    _runningInstances.Add(sceneType, instance);
-                }
-
-                return _runningInstances[sceneType];
-            }
-        }
     }
 }

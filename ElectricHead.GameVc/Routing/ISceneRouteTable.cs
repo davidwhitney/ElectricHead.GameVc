@@ -10,6 +10,6 @@ namespace ElectricHead.GameVc.Routing
         List<Type> Renderers { get; }
         ISceneSelectionStrategy SceneSelectionStragety { get; set; }
         Type DefaultScene();
-        RenderingProxy RendererFor<TSceneType>(TSceneType scene) where TSceneType : IScene;
+        Type RendererFor<TSceneType>(TSceneType scene) where TSceneType : IScene;
     }
 }

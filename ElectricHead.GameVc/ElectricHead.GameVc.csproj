@@ -51,9 +51,10 @@
   <ItemGroup>
     <Compile Include="ErrorHandling\ErrorActionHandler.cs" />
     <Compile Include="ErrorHandling\IGlobalErrorHandler.cs" />
-    <Compile Include="Rendering\RenderingProxy.cs" />
+    <Compile Include="Rendering\RenderASceneProxy.cs" />
     <Compile Include="Routing\DefaultSceneSelectionStrategy.cs" />
     <Compile Include="ControlFlow\GameLoop.cs" />
+    <Compile Include="Routing\SceneCache.cs" />
     <Compile Include="SceneRegistration\IRegisterScenes.cs" />
     <Compile Include="IScene.cs" />
     <Compile Include="Routing\ISceneRouter.cs" />
@@ -71,13 +72,13 @@
     <Compile Include="Routing\Results\ChangeScene.cs" />
     <Compile Include="Routing\Results\Continue.cs" />
     <Compile Include="Routing\Results\Exit.cs" />
+    <Compile Include="TypeActivation\ActivationShim.cs" />
+    <Compile Include="TypeActivation\IDependencyResolver.cs" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\GameVc.mgcb" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="TypeActivation\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Condition="'$(NCrunch)' != '1'" Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
