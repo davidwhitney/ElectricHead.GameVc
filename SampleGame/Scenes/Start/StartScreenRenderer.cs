@@ -2,7 +2,7 @@
 using ElectricHead.GameVc.Rendering;
 using Microsoft.Xna.Framework;
 
-namespace StarCrucible.Scenes.Start
+namespace SampleGame.Scenes.Start
 {
     public class StartScreenRenderer : IRenderAScene<StartScreen>
     {

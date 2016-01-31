@@ -2,7 +2,7 @@
 using ElectricHead.GameVc.Rendering;
 using Microsoft.Xna.Framework;
 
-namespace StarCrucible.Scenes.Splash
+namespace SampleGame.Scenes.Splash
 {
     public class SplashScreenRenderer : IRenderAScene<SplashScreen>
     {

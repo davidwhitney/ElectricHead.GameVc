@@ -2,9 +2,8 @@
 using ElectricHead.GameVc.Routing.Results;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
-using static ElectricHead.GameVc.Routing.Results.And;
 
-namespace StarCrucible.Scenes.Start
+namespace SampleGame.Scenes.Start
 {
     public class StartScreen : Scene
     {
@@ -13,20 +12,20 @@ namespace StarCrucible.Scenes.Start
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed 
                 || Keyboard.GetState().IsKeyDown(Keys.Escape))
             {
-                return QuitToDesktop;
+                return And.QuitToDesktop;
             }
 
-            return NoOp;
+            return And.NoOp;
         }
 
         public override ActionResult Update(GameTime gameTime)
         {
-            return NoOp;
+            return And.NoOp;
         }
 
         public override ActionResult PostUpdate()
         {
-            return NoOp;
+            return And.NoOp;
         }
     }
 }

@@ -2,7 +2,7 @@
 using ElectricHead.GameVc.Rendering;
 using Microsoft.Xna.Framework;
 
-namespace StarCrucible.Scenes.GameBoard
+namespace SampleGame.Scenes.GameBoard
 {
     public class GameBoardScreenRenderer : IRenderAScene<GameBoardScreen>
     {

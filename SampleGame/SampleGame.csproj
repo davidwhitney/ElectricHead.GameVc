@@ -8,8 +8,8 @@
     <ProjectGuid>{A2EB5D0E-5376-49F2-BDA3-C447E34F8E40}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>StarCrucible</RootNamespace>
-    <AssemblyName>StarCrucible</AssemblyName>
+    <RootNamespace>SampleGame</RootNamespace>
+    <AssemblyName>SampleGame</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MonoGamePlatform>Windows</MonoGamePlatform>
     <MonoGameContentBuilderExe>
@@ -44,7 +44,7 @@
     <Compile Include="Scenes\Start\StartScreenRenderer.cs" />
     <Compile Include="Scenes\Splash\SplashScreen.cs" />
     <Compile Include="Scenes\Start\StartScreen.cs" />
-    <Compile Include="StarCrucible.cs" />
+    <Compile Include="SampleGame.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

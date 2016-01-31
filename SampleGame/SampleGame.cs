@@ -2,13 +2,13 @@
 using ElectricHead.GameVc;
 using Microsoft.Xna.Framework;
 
-namespace StarCrucible
+namespace SampleGame
 {
-    public class StarCrucible : Game
+    public class SampleGame : Game
     {
         private readonly GameVc _gameVc;
 
-        public StarCrucible()
+        public SampleGame()
         {
             _gameVc = new GameVc(this)
                             .AutoregisterScenes()

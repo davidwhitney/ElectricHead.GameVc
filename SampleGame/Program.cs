@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace StarCrucible
+namespace SampleGame
 {
 #if WINDOWS || LINUX
     /// <summary>
@@ -14,7 +14,7 @@ namespace StarCrucible
         [STAThread]
         static void Main()
         {
-            using (var game = new StarCrucible())
+            using (var game = new SampleGame())
                 game.Run();
         }
     }
