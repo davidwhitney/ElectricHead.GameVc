@@ -7,13 +7,27 @@ namespace ElectricHead.GameVc.Routing
     {
         private readonly ISceneRouteTable _sceneRouteTable;
         private readonly SceneCache _cache;
+        private readonly RenderingContext _renderingContext;
 
-        public IScene Current => _cache.For(_sceneRouteTable.Scenes.First());
+        public IScene Current
+        {
+            get
+            {
+                var current = _cache.For(_sceneRouteTable.Scenes.First());
+                if (current.RequiresInitilisation)
+                {
+                    current.Scene.LoadContent(_renderingContext);
+                }
 
-        public SceneRouter(ISceneRouteTable routeTable, SceneCache cache)
+                return current.Scene;
+            }
+        }
+
+        public SceneRouter(ISceneRouteTable routeTable, SceneCache cache, RenderingContext renderingContext)
         {
             _sceneRouteTable = routeTable;
             _cache = cache;
+            _renderingContext = renderingContext;
         }
 
         public SceneRouter StartWith<TScene>()

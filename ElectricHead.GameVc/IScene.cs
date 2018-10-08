@@ -5,7 +5,7 @@ namespace ElectricHead.GameVc
 {
     public interface IScene
     {
-        void LoadContent();
+        void LoadContent(RenderingContext renderingContext);
         ActionResult PreUpdate();
         ActionResult Update(GameTime gameTime);
         ActionResult PostUpdate();

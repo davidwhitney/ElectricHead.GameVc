@@ -28,6 +28,11 @@ namespace ElectricHead.GameVc.Routing
 
         public Type RendererFor<TSceneType>(TSceneType scene) where TSceneType : IScene
         {
+            if (scene is IRenderAScene)
+            {
+                return scene.GetType();
+            }
+
             foreach (var renderer in Renderers)
             {
                 if (renderer.GetInterface(typeof(IRenderAScene<>).Name) != null

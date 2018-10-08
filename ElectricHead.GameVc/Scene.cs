@@ -5,7 +5,7 @@ namespace ElectricHead.GameVc
 {
     public class Scene : IScene
     {
-        public virtual void LoadContent()
+        public virtual void LoadContent(RenderingContext renderingContext)
         {
         }
 

@@ -17,24 +17,30 @@ namespace ElectricHead.GameVc
         public IRegisterScenes SceneRegistrar { get; set; }
         public IGlobalErrorHandler ErrorHandler { get; set; }
         public IDependencyResolver DependencyResolver { get; set; }
+        public RenderingContext RenderingContext { get; set; }
 
         private readonly Game _theGame;
         private readonly GameLoop _gameLoop;
-        private readonly RenderingContext _renderingContext;
 
-        private IScene CurrentScene => Router.Current;
+        public IScene CurrentScene => Router.Current;
 
         public GameVc(Game theGame, string contentDirectory = "Content")
         {
             _theGame = theGame;
             _theGame.Content.RootDirectory = contentDirectory;
-            _renderingContext = new RenderingContext { Game = _theGame, GraphicsDevice = new GraphicsDeviceManager(theGame)};
 
             DependencyResolver = new ActivationShim(Activator.CreateInstance);
-
             SceneRouteTable = new SceneRouteTable();
             SceneRegistrar = new SceneRegistrar(SceneRouteTable);
-            Router = new SceneRouter(SceneRouteTable, new SceneCache(DependencyResolver.CreateInstance));
+
+            RenderingContext = new RenderingContext
+            {
+                Game = _theGame,
+                GraphicsDevice = new GraphicsDeviceManager(theGame),
+                ContentDirectory = contentDirectory
+            };
+
+            Router = new SceneRouter(SceneRouteTable, new SceneCache(DependencyResolver.CreateInstance), RenderingContext);
 
             _gameLoop = new GameLoop(theGame, Router,
                 t => CurrentScene.PreUpdate(),
@@ -57,8 +63,8 @@ namespace ElectricHead.GameVc
 
         public void LoadContent()
         {
-            _renderingContext.SpriteBatch = new SpriteBatch(_theGame.GraphicsDevice);
-            Router.Current.LoadContent();
+            RenderingContext.SpriteBatch = new SpriteBatch(_theGame.GraphicsDevice);
+            Router.Current.LoadContent(RenderingContext);
         }
 
         public void Update(GameTime time)
@@ -78,10 +84,12 @@ namespace ElectricHead.GameVc
             try
             {
                 var rendererType = SceneRouteTable.RendererFor(Router.Current);
-                var rendererInstance = DependencyResolver.CreateInstance(rendererType);
-                var proxy = new RenderASceneProxy(rendererInstance);
+                var rendererInstance = rendererType == Router.Current.GetType()
+                    ? Router.Current
+                    : DependencyResolver.CreateInstance(rendererType);
 
-                proxy.Draw(_renderingContext, CurrentScene, time);
+                var proxy = new RenderASceneProxy(rendererInstance);
+                proxy.Draw(RenderingContext, CurrentScene, time);
             }
             catch (Exception ex) when (ErrorHandler != null)
             {

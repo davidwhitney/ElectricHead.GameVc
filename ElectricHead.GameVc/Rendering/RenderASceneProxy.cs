@@ -23,6 +23,12 @@ namespace ElectricHead.GameVc.Rendering
 
         public void Draw(RenderingContext context, object currentScene, GameTime now)
         {
+            if (currentScene is IRenderAScene selfRenderer)
+            {
+                selfRenderer.Draw(context, now);
+                return;
+            }
+
             _drawMethod.Invoke(_rendererInstance, new[] { context, currentScene, now });
         }
     }

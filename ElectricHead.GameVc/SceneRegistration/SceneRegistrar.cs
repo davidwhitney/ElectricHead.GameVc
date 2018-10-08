@@ -56,6 +56,11 @@ namespace ElectricHead.GameVc.SceneRegistration
         private SceneRegistrar Register(Type sceneType)
         {
             _routeTable.Scenes.Add(sceneType);
+            
+            if (typeof(IRenderAScene).IsAssignableFrom(sceneType))
+            {
+                return this;
+            }
 
             var rendererName = sceneType.Name.Replace(sceneType.Name, sceneType.Name + "Renderer");
             var rendererType = Assembly.GetAssembly(sceneType).GetTypes().FirstOrDefault(type => type.Name == rendererName);

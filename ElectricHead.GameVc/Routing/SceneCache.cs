@@ -14,15 +14,21 @@ namespace ElectricHead.GameVc.Routing
             _runningInstances = new Dictionary<Type, IScene>();
         }
 
-        public IScene For(Type sceneType)
+        public SceneCacheResult For(Type sceneType)
         {
+            var requiresInitilisation = false;
             if (!_runningInstances.ContainsKey(sceneType))
             {
                 var instance = (IScene)_createType(sceneType);
+                requiresInitilisation = true;
                 _runningInstances.Add(sceneType, instance);
             }
 
-            return _runningInstances[sceneType];
+            return new SceneCacheResult
+            {
+                RequiresInitilisation = requiresInitilisation,
+                Scene = _runningInstances[sceneType]
+            };
         }
     }
 }
